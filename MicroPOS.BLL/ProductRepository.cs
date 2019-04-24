@@ -4,6 +4,8 @@ using System.Linq;
 using System.Transactions;
 using MicroPOS.DAL;
 using MicroPOS.DAL.RDS;
+using System.Data.Entity;
+
 
 namespace MicroPOS.BLL
 {
@@ -18,6 +20,11 @@ namespace MicroPOS.BLL
             using (var db = new MicroPOSDbContext())
             {
                db.Products.Add(entity);
+               foreach (var storeId in entity.Stores)
+               {
+                  var stock = new Stock { ProductId = entity.Id, StoreId = storeId };
+                  db.Stocks.Add(stock);
+               }
                db.SaveChanges();
             }
 
@@ -45,7 +52,7 @@ namespace MicroPOS.BLL
       {
          using (var db = new MicroPOSDbContext())
          {
-            return db.Products.ToList();
+            return db.Products.Include(x => x.ProductGroup).Include(x=>x.Stocks).ToList();
          }
       }
 
@@ -53,7 +60,7 @@ namespace MicroPOS.BLL
       {
          using (var db = new MicroPOSDbContext())
          {
-            return db.Products.FirstOrDefault(x => x.Id == id);
+            return db.Products.Include(x=>x.ProductGroup).Include(x => x.Stocks).FirstOrDefault(x => x.Id == id);
          }
       }
    }

@@ -54,10 +54,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="DTO\ProductDetailsDto.cs" />
+    <Compile Include="DTO\ProductDto.cs" />
+    <Compile Include="DTO\ProductGroupDto.cs" />
+    <Compile Include="Helper.cs" />
     <Compile Include="MicroPOSDbContext.cs" />
-    <Compile Include="Migrations\201904222313444_EmptyDB.cs" />
-    <Compile Include="Migrations\201904222313444_EmptyDB.Designer.cs">
-      <DependentUpon>201904222313444_EmptyDB.cs</DependentUpon>
+    <Compile Include="Migrations\201904241352419_FileName.cs" />
+    <Compile Include="Migrations\201904241352419_FileName.Designer.cs">
+      <DependentUpon>201904241352419_FileName.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -65,6 +69,7 @@
     <Compile Include="RDS\Product.cs" />
     <Compile Include="RDS\ProductGroup.cs" />
     <Compile Include="RDS\Store.cs" />
+    <Compile Include="RDS\Stock.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -72,11 +77,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DTO\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201904222313444_EmptyDB.resx">
-      <DependentUpon>201904222313444_EmptyDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904241352419_FileName.resx">
+      <DependentUpon>201904241352419_FileName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

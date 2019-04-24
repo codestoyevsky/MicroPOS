@@ -1,4 +1,7 @@
-﻿using System.Data.Entity.Migrations;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Migrations;
+using System.Linq;
 using System.Transactions;
 using MicroPOS.DAL;
 using MicroPOS.DAL.RDS;
@@ -36,6 +39,14 @@ namespace MicroPOS.BLL
             }
 
             scope.Complete();
+         }
+      }
+
+      public List<ProductGroup> Get()
+      {
+         using (var db = new MicroPOSDbContext())
+         {
+            return db.ProductGroups.Include(x => x.SubGroups).ToList();
          }
       }
    }

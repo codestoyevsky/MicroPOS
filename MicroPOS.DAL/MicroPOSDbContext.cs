@@ -19,6 +19,7 @@ namespace MicroPOS.DAL
       public virtual DbSet<ProductGroup> ProductGroups { get; set; }
       public virtual DbSet<Store> Stores { get; set; }
       public virtual DbSet<Product> Products { get; set; }
+      public virtual DbSet<Stock> Stocks { get; set; }
 
       public override int SaveChanges()
       {
