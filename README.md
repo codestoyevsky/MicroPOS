@@ -4,4 +4,4 @@
 EF migration is enabled in this project. To create initial DB please update web.config connection string credentials 
 And after run this command
 
-update-Database -projectName "MicroPOS.DataAccess" -startUpProjectName "MicroPOS.API" -verbose
+update-Database -projectName "MicroPOS.DAL" -startUpProjectName "MicroPOS.API" -verbose
