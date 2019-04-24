@@ -7,13 +7,13 @@ namespace MicroPOS.DAL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class FileName : IMigrationMetadata
+    public sealed partial class EmtptyDbScript : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(FileName));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(EmtptyDbScript));
         
         string IMigrationMetadata.Id
         {
-            get { return "201904241352419_FileName"; }
+            get { return "201904242348284_EmtptyDbScript"; }
         }
         
         string IMigrationMetadata.Source

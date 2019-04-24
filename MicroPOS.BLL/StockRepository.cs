@@ -9,9 +9,9 @@ using MicroPOS.DAL.RDS;
 
 namespace MicroPOS.BLL
 {
-   public class ProductGroupRepository : IProductGroupRepository
+   public class StockRepository : IStockRepository
    {
-      public int Create(ProductGroup entity)
+      public int Create(Stock entity)
       {
          var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadUncommitted });
 
@@ -19,7 +19,7 @@ namespace MicroPOS.BLL
          {
             using (var db = new MicroPOSDbContext())
             {
-               db.ProductGroups.Add(entity);
+               db.Stocks.Add(entity);
                db.SaveChanges();
             }
 
@@ -28,14 +28,14 @@ namespace MicroPOS.BLL
          }
       }
 
-      public void Update(ProductGroup entity)
+      public void Update(Stock entity)
       {
          var scope = new TransactionScope(TransactionScopeOption.RequiresNew, new TransactionOptions { IsolationLevel = IsolationLevel.ReadUncommitted });
          using (scope)
          {
             using (var db = new MicroPOSDbContext())
             {
-               db.ProductGroups.AddOrUpdate(entity);
+               db.Stocks.AddOrUpdate(entity);
                db.SaveChanges();
             }
 
@@ -43,19 +43,19 @@ namespace MicroPOS.BLL
          }
       }
 
-      public List<ProductGroup> Get()
+      public List<Stock> Get()
       {
          using (var db = new MicroPOSDbContext())
          {
-            return db.ProductGroups.Include(x => x.SubGroups).ToList();
+            return db.Stocks.Include(x => x.Product).Include(x=>x.Store).ToList();
          }
       }
 
-      public ProductGroup Get(int id)
+      public Stock Get(int id)
       {
          using (var db = new MicroPOSDbContext())
          {
-            return db.ProductGroups.Include(x => x.SubGroups).FirstOrDefault(x=>x.Id == id);
+            return db.Stocks.Include(x => x.Product).Include(x => x.Store).FirstOrDefault(x => x.Id == id);
          }
       }
    }

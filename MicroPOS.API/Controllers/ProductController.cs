@@ -6,11 +6,21 @@ using System.Web.Http;
 using AutoMapper;
 using MicroPOS.DAL;
 using MicroPOS.DAL.DTO;
+using MicroPOS.DAL.Interfaces;
 
 namespace MicroPOS.API.Controllers
 {
+   [RoutePrefix("api/Product")]
    public class ProductController : ApiController
    {
+      private readonly IProductRepository _productRepository;
+
+      public ProductController()
+      {
+         _productRepository = new ProductRepository();
+      }
+
+      [Route("Save")]
       [HttpPost]
       public IHttpActionResult Save(ProductDto product)
       {
@@ -19,22 +29,21 @@ namespace MicroPOS.API.Controllers
             return BadRequest("At least two values from these 3 must be entered : Price, VAT Rate, Price With VAT");
          }
 
-         var entity = new Product();
+         var entity = new Product { Id = 0 };
          Mapper.Map(product, entity);
-         var productRepository = new ProductRepository();
-         productRepository.Create(entity);
+         _productRepository.Create(entity);
          return Ok();
       }
 
 
-      [HttpPost]
+      [Route("Get")]
+      [HttpGet]
       public IHttpActionResult Get(int? id)
       {
-         var productRepository = new ProductRepository();
 
          if (id.IsNullOrDefault())
          {
-            var products = productRepository.Get();
+            var products = _productRepository.Get();
             var result = new List<ProductDetailsDto>();
             Mapper.Map(products.ToList(), result);
             return Ok(result);
@@ -42,7 +51,7 @@ namespace MicroPOS.API.Controllers
 
          else
          {
-            var product = productRepository.Get(id.Value);
+            var product = _productRepository.Get(id.Value);
             var result = new ProductDetailsDto();
             Mapper.Map(product, result);
             return Ok(result);

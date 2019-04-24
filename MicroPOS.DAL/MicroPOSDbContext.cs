@@ -17,8 +17,11 @@ namespace MicroPOS.DAL
       }
 
       public virtual DbSet<ProductGroup> ProductGroups { get; set; }
+
       public virtual DbSet<Store> Stores { get; set; }
+
       public virtual DbSet<Product> Products { get; set; }
+
       public virtual DbSet<Stock> Stocks { get; set; }
 
       public override int SaveChanges()
@@ -26,6 +29,7 @@ namespace MicroPOS.DAL
          AddTimestamps();
          return base.SaveChanges();
       }
+
       private void AddTimestamps()
       {
          var entities = ChangeTracker.Entries().Where(x => x.Entity is Base && (x.State == EntityState.Added || x.State == EntityState.Modified));
@@ -37,7 +41,6 @@ namespace MicroPOS.DAL
             }
          }
       }
-
       protected override void OnModelCreating(DbModelBuilder modelBuilder) => modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
    }
 }

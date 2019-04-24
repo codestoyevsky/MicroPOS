@@ -53,15 +53,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="DTO\ProductDetailsDto.cs" />
     <Compile Include="DTO\ProductDto.cs" />
     <Compile Include="DTO\ProductGroupDto.cs" />
     <Compile Include="Helper.cs" />
+    <Compile Include="Interfaces\IProductGroupRepository.cs" />
+    <Compile Include="Interfaces\IProductRepository.cs" />
+    <Compile Include="Interfaces\IStockRepository.cs" />
+    <Compile Include="Interfaces\IStoreRepository.cs" />
     <Compile Include="MicroPOSDbContext.cs" />
-    <Compile Include="Migrations\201904241352419_FileName.cs" />
-    <Compile Include="Migrations\201904241352419_FileName.Designer.cs">
-      <DependentUpon>201904241352419_FileName.cs</DependentUpon>
+    <Compile Include="Migrations\201904242348284_EmtptyDbScript.cs" />
+    <Compile Include="Migrations\201904242348284_EmtptyDbScript.Designer.cs">
+      <DependentUpon>201904242348284_EmtptyDbScript.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,8 +80,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201904241352419_FileName.resx">
-      <DependentUpon>201904241352419_FileName.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904242348284_EmtptyDbScript.resx">
+      <DependentUpon>201904242348284_EmtptyDbScript.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

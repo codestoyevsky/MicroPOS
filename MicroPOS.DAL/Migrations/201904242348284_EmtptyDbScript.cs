@@ -3,7 +3,7 @@ namespace MicroPOS.DAL.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class FileName : DbMigration
+    public partial class EmtptyDbScript : DbMigration
     {
         public override void Up()
         {

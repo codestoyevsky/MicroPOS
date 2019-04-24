@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ProductGroupRepository.cs" />
+    <Compile Include="StockRepository.cs" />
     <Compile Include="StoreRepository.cs" />
     <Compile Include="ProductRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

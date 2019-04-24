@@ -49,7 +49,7 @@ namespace MicroPOS.DAL.DTO
       public double? CalculatePriceWithVat()
       {
          if (Price.IsNullOrDefault() || VatRate.IsNullOrDefault()) return null;
-         return Price * ((VatRate + 100) / 100) + Price;
+         return Price * ((VatRate + 100) / 100);
       }
 
       public double? CalculatePrice()

@@ -5,11 +5,12 @@ using System.Transactions;
 using MicroPOS.DAL;
 using MicroPOS.DAL.RDS;
 using System.Data.Entity;
+using MicroPOS.DAL.Interfaces;
 
 
 namespace MicroPOS.BLL
 {
-   public class ProductRepository
+   public class ProductRepository : IProductRepository
    {
       public int Create(Product entity)
       {

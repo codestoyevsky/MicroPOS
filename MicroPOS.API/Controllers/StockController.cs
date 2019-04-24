@@ -1,4 +1,4 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
 using MicroPOS.DAL.RDS;
 using System.Web.Http;
 using MicroPOS.BLL;
@@ -8,38 +8,37 @@ using MicroPOS.DAL.Interfaces;
 namespace MicroPOS.API.Controllers
 {
 
-   [RoutePrefix("api/Store")]
-   public class StoreController : ApiController
+   [RoutePrefix("api/Stock")]
+   public class StockController : ApiController
    {
-      private readonly IStoreRepository _iStoreRepository;
+      private readonly IStockRepository _stockRepository;
 
-      private StoreController()
+      public StockController()
       {
-         _iStoreRepository = new StoreRepository();
+         _stockRepository = new StockRepository();
       }
 
       [Route("Save")]
       [HttpPost]
-      public IHttpActionResult Save(Store product)
+      public IHttpActionResult Save(Stock product)
       {
-         _iStoreRepository.Create(product);
+         _stockRepository.Create(product);
          return Ok();
       }
+
 
       [Route("Get")]
       [HttpGet]
       public IHttpActionResult Get(int? id)
       {
-
          if (id.IsNullOrDefault())
          {
-            var result = _iStoreRepository.Get().ToList();
+            var result = _stockRepository.Get();
             return Ok(result);
          }
-
          else
          {
-            var result = _iStoreRepository.Get(id.Value);
+            var result = _stockRepository.Get(id.Value);
             return Ok(result);
          }
 
