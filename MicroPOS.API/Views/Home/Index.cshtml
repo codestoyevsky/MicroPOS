@@ -1,24 +1,53 @@
-﻿<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+﻿@{
+    Layout = "";
+}
+
+<div style="text-align: center; width: 100%;">
+    <img src="data:image/png;base64,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" />
+    <h1>MicroPOS API</h1>
 </div>
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
-        a broad range of clients, including browsers and mobile devices. ASP.NET Web API
-        is an ideal platform for building RESTful applications on the .NET Framework.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301870">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301871">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>
-    </div>
+
+
+<div>
+    <h2>The API should have: </h2>
+    <h4>
+        1.An endpoint which will allow to add a product. The product should have a name, info regarding the group it belongs to,
+        when it was added, price, price with VAT and VAT rate (%) for that product. It should also have the option to add product to store or stores here.
+        In the input if either 2 values from price, price with VAT, VAT rate are provided, third one should be calculated in the API if not provided.
+        For example, if price and VAT rate are given, price with VAT should be calculated on the spot and so on.
+    </h4>
+
+    <h4 style="color: red;">
+        Click to test : <a href="https://micropos.azurewebsites.net/swagger/ui/index#!/Product/Product_Save" target="_blank">Swagger Links</a>
+    </h4>
+
+
+    <h4>
+        2.An endpoint which will return one product by product id. If the id is empty, return all of the products. The product object returned should have name,
+        product group name to which the product belongs, time when it was added, price, price with VAT and VAT rate. Also array of store(s) where product exists.
+    </h4>
+
+    <h4 style="color: red;">
+        Click to test : <a href="https://micropos.azurewebsites.net/swagger/ui/index#!/Product/Product_Get" target="_blank">Swagger Links</a>
+    </h4>
+
+    <h4>
+        3.An endpoint which will return product groups as tree with child groups. The group object here should have a name, its id and Id of its parent group
+        and child groups (if there are no child groups this can be an empty array). 5.    For Stores and Product Groups feel free to add data directly to the database
+        yourself as you see fit. Would be nice to see at least 3 stores, enough groups to build a tree with two main nodes and two child nodes for each and to have all stores have
+        1-2 distinct products.
+    </h4>
+
+    <h4 style="color: red;">
+        Click to test : <a href="https://micropos.azurewebsites.net/swagger/ui/index#!/ProductGroup/ProductGroup_Get" target="_blank">Swagger Links</a>
+    </h4>
+
+
+    <h4>
+        5.For Stores and Product Groups feel free to add data directly to the database yourself as you see fit. Would be nice to see at least 3 stores,
+        enough groups to build a tree with two main nodes and two child nodes for each and to have all stores have 1-2 distinct products.
+    </h4>
+    <h4 style="color: red;">
+        It is done inside the EF Migration
+    </h4>
 </div>

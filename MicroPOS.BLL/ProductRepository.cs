@@ -7,7 +7,6 @@ using MicroPOS.DAL.RDS;
 using System.Data.Entity;
 using MicroPOS.DAL.Interfaces;
 
-
 namespace MicroPOS.BLL
 {
    public class ProductRepository : IProductRepository
@@ -23,6 +22,7 @@ namespace MicroPOS.BLL
                db.Products.Add(entity);
                foreach (var storeId in entity.Stores)
                {
+                  if (storeId==0) continue;
                   var stock = new Stock { ProductId = entity.Id, StoreId = storeId };
                   db.Stocks.Add(stock);
                }
