@@ -12,9 +12,10 @@ EF migration is enabled in this project. To create initial DB please update web.
 And after run this command
 
 You need to enter proper crdentials
-1.Server Name
-2.User Name
-3.User Password
+
+-1.Server Name
+-2.User Name
+-3.User Password
 
 ```
 <add name="MicroPos" connectionString="Data Source=.\;Initial Catalog=MicroPos;user id=sa;password=justSql1;" providerName="System.Data.SqlClient" />
