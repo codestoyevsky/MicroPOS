@@ -11,7 +11,7 @@
 EF migration is enabled in this project. To create initial DB please update web.config connection string credentials 
 And after run this command
 
-You need to enter proper crdentials
+You need to enter proper credentials for MS SQL Server (Version 2008 or greater)
 
 - 1.Server Name
 - 2.User Name
