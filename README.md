@@ -38,6 +38,8 @@ You can run it on Package Manager Console
 * [Migration in Entity Framework]
 * [NUnit]
 * [Shoudly]
+* [Azure Web Service]
+* [Azure SQL Database]
 
 
 ### Todos
