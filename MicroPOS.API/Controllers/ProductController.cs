@@ -71,6 +71,8 @@ namespace MicroPOS.API.Controllers
          else
          {
             var product = _productRepository.Get(id.Value);
+            if (product == null) return NotFound();
+            
             var result = new ProductDetailsDto();
             Mapper.Map(product, result);
             return Ok(result);
