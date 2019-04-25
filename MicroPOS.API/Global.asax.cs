@@ -35,7 +35,7 @@ namespace MicroPOS.API
             cfg.CreateMap<ProductDetailsDto, Product>()
                .ForPath(product => product.ProductGroup.Name, productDetail => productDetail.MapFrom(s => s.GroupName));
             cfg.CreateMap<Product, ProductDetailsDto>()
-               .ForPath(productDetail => productDetail.Name, product => product.MapFrom(s => s.ProductGroup.Name))
+               .ForPath(productDetail => productDetail.GroupName, product => product.MapFrom(s => s.ProductGroup.Name))
                .ForPath(productDetail => productDetail.Stores, product => product.MapFrom(s => s.Stocks.Select(x => x.StoreId).ToArray()));
 
             cfg.CreateMap<ProductGroup, ProductGroupDto>();
